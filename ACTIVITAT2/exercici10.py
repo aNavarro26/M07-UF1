@@ -1,3 +1,4 @@
+# Aquest mòdul proporciona funcions per generar números aleatoris
 import random
 
 # Crear un arxiu on caldrà endevinar el número escollit pel programa entre 1 i 100.
@@ -12,12 +13,17 @@ tries = 0
 
 isNumCorrect = False
 
+# Continua executant-se mentre la condició "not isNumCorrect" és certa. Continuarà funcionant fins que
+# la variable isNumCorrect es converteix en True.
 while not isNumCorrect:
+    # Bucle de validació que garanteix l'entrada de l'usuari es manté dins del rang d'1 a 100.
     while userInput < 1 or userInput > 100:
         userInput = int(
             input("Introdueix un valor entre el rang seleccionat (1 entre 100): ")
         )
 
+    # Gestiona l'entrada de l'usuari i proporciona comentaris segons en
+    # si l'entrada és major, menor o igual al número secret
     if userInput > secretNumber:
         tries += 1
         userInput = int(

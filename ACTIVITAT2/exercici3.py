@@ -3,6 +3,7 @@
 userInputValue1 = float(input("Introdueix el valor 1: "))
 userInputValue2 = float(input("Introdueix el valor 2: "))
 
+# Compara dos valors d'entrada proporcionats per l'usuari i determina quin és més gran.
 if userInputValue1 > userInputValue2:
     print(f"El valor més gran és: {userInputValue1:.2f}")
 elif userInputValue2 > userInputValue1:

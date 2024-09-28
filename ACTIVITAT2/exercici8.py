@@ -8,13 +8,20 @@
 
 userInput = input("Introdueix d'una a tres paraules separades per espais: ")
 
+# Divido l'entrada de l'usuari en paraules separades en funció del caràcter d'espai.
 paraules = userInput.split(" ")
 
+# Validar el nombre de paraules introduïdes per l'usuari. El
+# bucle while comprova si la longitud de la llista paraules és superior a 3 o inferior a 1. Si el
+# es compleix, demana a l'usuari que torni a introduir les paraules amb un missatge que indica que a
+# es poden introduir com a màxim 3 paraules. Després, la nova entrada es divideix en paraules i la guardo en "paraules".
 while len(paraules) > 3 or len(paraules) < 1:
     userInput = input("Com a màxim has de posar 3 paraules, torna a posarles: ")
     paraules = userInput.split(" ")
 
 
+# Gestiono els diferents casos en funció del nombre de paraules
+# d'entrada per l'usuari.
 if len(paraules) == 1:
     paraula1 = paraules[0]
     p1Len = len(paraula1)
