@@ -20,13 +20,19 @@ userInput = int(
     input("Introdueix un mes en format número (1 al 12, per finalitzar posa 0): ")
 )
 
+
 while userInput != 0:
+    # comprovar si l'entrada de l'usuari és un número de mes vàlid.
     while userInput < 0 or userInput > 12:
         userInput = int(
             input(
                 "Mes no vàlid, introdueix un mes en format número (1 al 12, per finalitzar posa 0): "
             )
         )
+
+    # accedo a l'element del mesosTupla corresponent a l'entrada de l'usuari. L'entrada de l'usuari ha de ser un número entre 1 i
+    # 12, per això resto 1 de l'entrada de l'usuari per obtenir l'índex correcte a la tupla
+
     mesEscollit = mesosTupla[userInput - 1]
     print(f"El número {userInput} correspon al mes: {mesEscollit}")
     userInput = int(

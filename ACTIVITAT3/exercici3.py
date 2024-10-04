@@ -10,10 +10,17 @@ resultsArray = []
 
 num = 0
 
+# iterar sobre un interval de nombres de l'1 al 10 inclosos.
+# Calcula el resultat de la multiplicació del número introduït per l'usuari
+# pel número actual del bucle
+
+
 for num in range(1, 11):
     result = userInput * num
     resultsArray.append(result)
 
+
+# convertir cada element de la llista resultsArray a una cadena.
 
 resultsArray = [str(result) for result in resultsArray]
 

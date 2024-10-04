@@ -5,11 +5,16 @@ userInput = input("Introdueix 10 números separats per espais: ")
 
 numsTupla = ()
 
+# iterar sobre l'entrada que és una cadena que conté
+# nombres separats per e espais.
+
 for num in userInput.split():
     numsTupla = numsTupla + (int(num),)
 
 lenTupla = len(numsTupla)
 
+# Comprovar si l'usuari ha introduït exactament 10 números separats per espais.
+# Si la longitud de la tupla numsTupla no és igual a 10, tornar a demanar a l'usuari
 while lenTupla != 10:
     userInput = input(
         "Números no vàlids, introdueix exactament 10 números separats per espais: "

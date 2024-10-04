@@ -8,6 +8,8 @@ fraseTupla = tuple(userInput.split())
 fraseNoDups = []
 charDups = []
 
+# iterar sobre cada paraula de la tupla fraseTupla. Per cada paraula, creo una paraula nova on només inclou caràcters
+# que no s'han trobat abans, que no estan a la llista charDups).
 for word in fraseTupla:
     newWord = ""
     for char in word:
@@ -17,6 +19,9 @@ for word in fraseTupla:
     fraseNoDups.append(newWord)
 
 fraseFinalNoDups = ""
+# Iterar sobre cada paraula de la llista fraseNoDups i concateno amb un espai.
+# Fer la frase sense duplicar caràcters.
+
 for word in fraseNoDups:
     fraseFinalNoDups += word + " "
 

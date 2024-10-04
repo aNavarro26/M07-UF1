@@ -1,5 +1,4 @@
 # Cal buscar la informació que es demana de la següent list:
-# TODO: Añadir comentarios
 
 areas_pis = [
     "Menjador",
