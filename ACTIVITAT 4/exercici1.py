@@ -22,7 +22,12 @@ def exercici1():
 
     np.fill_diagonal(array, np.arange(50))
 
-    print(array)
+    # print(array)
+
+    # guardar la matriu en un arxiu .npy
+    np.save("exercici1.npy", array)
+
+    return array
 
 
 exercici1()
