@@ -19,3 +19,17 @@ A la segona gràfica, es mostren les morts totals per mes en 10 països, cada ve
 ![Taxa de reproducció per mes i país](./images/anavarro_grafica3.png)
 
 Aquesta gràfica presenta la taxa de reproducció del virus per mes en 10 països que també canvien per cada execució del codi.
+
+## Exercici 3 
+
+## Gràfica de Clock Speed per ID de Mòbil
+
+Aquesta gràfica mostra la velocitat del processador dels diferents mòbils, identificats pel seu ID. ens permet saber a quina velocitat funciona cada model.
+
+## Gràfica de Megapíxels per ID de Mòbil
+
+Aquí es comparen els megapíxels de les càmeres dels mòbils. Cada barra indica la capacitat de captura d'imatge del mòbil corresponent.
+
+## Gràfica de Battery Power per ID de Mòbil
+
+Aquesta gràfica mostra la capacitat de bateria dels mòbils en miliamperis hora (mAh). Mostra quant de llarga pot ser la durada de la bateria de cada mòbil sota ús normal.
