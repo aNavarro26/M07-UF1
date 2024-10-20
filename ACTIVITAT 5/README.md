@@ -41,12 +41,18 @@ En aquesta ultima grafica podem observar el mateix que en la segona grafica pero
 
 ## Gràfica de Clock Speed per ID de Mòbil
 
+![Gráfica de Clock Speed](./images/Figure_1_Achraf_Chakir.png)
+
 Aquesta gràfica mostra la velocitat del processador dels diferents mòbils, identificats pel seu ID. ens permet saber a quina velocitat funciona cada model.
 
 ## Gràfica de Megapíxels per ID de Mòbil
 
+![Gráfica de Megapíxels](./images/Figure_2_Achraf_Chakir.png)
+
 Aquí es comparen els megapíxels de les càmeres dels mòbils. Cada barra indica la capacitat de captura d'imatge del mòbil corresponent.
 
 ## Gràfica de Battery Power per ID de Mòbil
+
+![Gráfica de Battery Power](./images/Figure_3_Achraf_Chakir.png)
 
 Aquesta gràfica mostra la capacitat de bateria dels mòbils en miliamperis hora (mAh). Mostra quant de llarga pot ser la durada de la bateria de cada mòbil sota ús normal.
