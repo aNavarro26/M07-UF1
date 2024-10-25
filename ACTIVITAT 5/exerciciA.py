@@ -5,33 +5,43 @@ import matplotlib.pyplot as plt
 
 
 def casos_totals_per_mes_i_pais():
-    # para que no surti amb notació cientifica
-    # pd.set_option("display.float_format", "{:.0f}".format)
+
     dataframe = pd.read_csv("df_covid19_countries.csv")
 
-    # print(dataframe.head())
-
-    # converteixo a format date la data per desrés poder tractar els months
     dataframe["date"] = pd.to_datetime(dataframe["date"])
 
+    # converteixo a format date la data per desrés poder tractar els months i el year
     dataframe["month"] = dataframe["date"].dt.month
+    dataframe["year"] = dataframe["date"].dt.year
 
-    # agafo els 10 paisos amb mes total_cases
-    countries = dataframe.groupby("location")["total_cases"].sum().nlargest(10).index
+    random_countries = dataframe["location"].drop_duplicates().sample(10)
 
-    months = [1, 2, 3, 4]
+    dataframe = dataframe[dataframe["location"].isin(random_countries)]
 
-    dataframe_filtrado = dataframe[
-        dataframe["location"].isin(countries) & dataframe["month"].isin(months)
-    ]
+    ultim_any_per_pais = dataframe.groupby("location")["year"].max().reset_index()
 
-    total_casos_per_pais = (
-        dataframe_filtrado.groupby(["location", "month"])["total_cases"]
-        .sum()
-        .reset_index()
+    # combino dataframe amb el df ultim_any_per_pais amb "location" i "year"
+    # posant inner indico que es quedaran les files que coincideixen amb "location" i "year", si no coincideixen s'eliminen
+    dataframe = dataframe.merge(
+        ultim_any_per_pais, on=["location", "year"], how="inner"
     )
 
-    print(total_casos_per_pais)
+    # gener, febrer, març, abril
+    desired_months = [1, 2, 3, 4]
+    dataframe_filtrado = dataframe[dataframe["month"].isin(desired_months)]
+
+    # ordeno per date ascendent
+    dataframe_filtrado = dataframe_filtrado.sort_values("date")
+    total_casos_per_pais = (
+        dataframe_filtrado.groupby(["location", "year", "month"]).last().reset_index()
+    )
+
+    # agafo les columnes que m'interessen
+    total_casos_per_pais = total_casos_per_pais[
+        ["location", "year", "month", "total_cases"]
+    ]
+
+    # print(total_casos_per_pais)
     return total_casos_per_pais
 
 
@@ -65,7 +75,7 @@ def morts_totals_per_mes_i_pais():
         .reset_index()
     )
 
-    print(morts_filtrades)
+    # print(morts_filtrades)
     return morts_filtrades
 
 
@@ -94,7 +104,7 @@ def reproduction_rate_per_mes_i_pais():
         .reset_index()
     )
 
-    print(reproduction_rate_filtrado)
+    # print(reproduction_rate_filtrado)
     return reproduction_rate_filtrado
 
 
@@ -116,6 +126,10 @@ def main():
     ax2 = grafica1.add_subplot(3, 1, 2)  # grafica 2 (Muertes Totales)
     ax3 = grafica1.add_subplot(3, 1, 3)  # grafica 3 (Tasa de Reproduccin)
 
+    # per a que no sorti amb notació científica
+    ax1.ticklabel_format(style="plain")
+    ax2.ticklabel_format(style="plain")
+    ax3.ticklabel_format(style="plain")
     # casos totals per mes i país
     for pais in total_casos_per_pais["location"].unique():
         dades_pais = total_casos_per_pais[total_casos_per_pais["location"] == pais]
