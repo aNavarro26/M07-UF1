@@ -1,7 +1,7 @@
 import connection as conn
 
 
-def create_table(table_name):
+def create_book_table(table_name):
     connection = conn.get_connection()
 
     if connection:
