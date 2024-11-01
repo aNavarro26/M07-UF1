@@ -12,12 +12,9 @@ def get_connection():
             port="5432",
         )
         cursor = connection.cursor()
+
         return connection
 
-        print(cursor)
     except Exception as e:
         print(f"Error al establir la connexió amb la base de dades {e}")
-    finally:
-        cursor.close()
-        connection.close()
         return None
