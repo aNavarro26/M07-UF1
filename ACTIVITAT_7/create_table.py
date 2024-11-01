@@ -11,16 +11,18 @@ def create_book_table(table_name):
             query = f"""
                 CREATE TABLE IF NOT EXISTS {table_name} (
                     id SERIAL PRIMARY KEY,
-                    title VARCHAR(20),
-                    author VARCHAR(20),
-                    gender VARCHAR(20),
+                    title VARCHAR(50),
+                    author VARCHAR(50),
+                    genre VARCHAR(50),
                     pages INTEGER,
-                    price VARCHAR(20),
-                    editorial VARCHAR(20)
+                    price FLOAT,
+                    editorial VARCHAR(50)
                     );
             """
 
             cursor.execute(query)
+            # faig commit per a que es guardin els canvis
+            connection.commit()
 
         except Exception as e:
             raise e
